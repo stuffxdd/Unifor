@@ -138,7 +138,7 @@ FIM
 
 Represente, em fluxograma e pseudocódigo, um algoritmo que, a partir da idade do candidato(a), determinar se pode ou não tirar a CNH. Caso não atender a restrição de idade, calcular quantos anos faltam para o candidato estar apto.
 
-**Fluxograma:**
+#### Fluxograma:
 
 ```mermaid
 flowchart TD
@@ -154,7 +154,7 @@ F --TRUE--> H{{Você pode tirar sua CNH.}}
 H --> I([FIM])
 ```
 
-**Pseudocódigo:**
+##### Pseudocódigo:
 
 ```
 ALGORITMO CNH
