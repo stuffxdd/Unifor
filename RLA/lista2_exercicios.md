@@ -20,7 +20,7 @@ Z([FIM])
 
 
 ```
-### Exercício 3:
+### Exercício 2:
 Leia uma temperatura dada na escala Celsius (C) e imprima o equivalente em Fahrenheit (F). (Fórmula de conversão: F = (9/5) * C + 32)
 
 #### Fluxograma:
@@ -41,11 +41,43 @@ Z([FIM])
 
 ```
 
+### Exercício 3:
 
+Leia uma quantidade de chuva dada em polegadas e imprima o equivalente em milímetros (25,4 mm = 1 polegada).
 
+#### Fluxograma:
 
+```mermaid
+flowchart TD
 
+A([Inicio]) --> B{{'Insira um valor de volume em polegadas: '}}
+B --> C[/volume_pol/]
 
+C --> D{volume_pol < 0}
+D --FALSE--> E[volume_mili = 25,4 * volume_pol]
+E --> F{{'O volume de ', volume_pol, ' em militros vale: ', volume_mili}} --> Z
+
+D --TRUE--> G{{'O valor inserido precisa ser positivo!}} --> Z
+
+Z([Fim])
+```
+
+#### Exercício 4:
+
+O custo ao consumidor de um carro novo é a soma do custo de fábrica com a porcentagem do distribuidor e dos impostos, ambos aplicados ao custo de fábrica. Supondo que a porcentagem do distribuidor seja de 12% e a dos impostos de 45%, prepare um algoritmo para ler o custo de fábrica do carro e imprimir o custo ao consumidor.
+
+```mermaid
+flowchart TD
+
+A([Inicio]) --> B{{'Insira o valor de um carro no preço de fábrica: '}}
+B --> C[/custoF/]
+C --> D{custoF < 0}
+D --FALSE--> E[custoC = custoF * 1.57]
+E --> F{{'O valor para o consumidor sairá por: ', custoC}} --> Z
+
+D --TRUE--> G{{O valor do carro não pode ser negativo!}} --> Z
+Z([Fim])
+```
 
 
 
@@ -92,13 +124,6 @@ W --> X{{'A raiz do primeiro número com o segundo número vale: ', raiz}} --> Z
 V--TRUE--> Z{{'Digite um operador válido!'}} --> ZZ
 
 ZZ([FIM])
-
-
-
-
-
-
- 
 
 ```
 
