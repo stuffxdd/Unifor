@@ -1,7 +1,59 @@
 # Unifor
 
+### Exerício 1:
+Calcule a média de quatro números inteiros dados.
+
+##### Fluxograma:
+
+```mermaid
+flowchart TD
+A([Inicio]) --> B{{'Insira 4 números inteiros: '}}
+B --> C[/n1, n2, n3, n4/]
+
+C --> D{n1 % 2 == 1 or n1 % 2 == 0 and n2 % 2 == 0 or n2 % 2 == 1 and n3 % 2 == 0 or n3 % 2 == 1 and n4 % 2 == 0 or n4 % 2 == 1}
+D --FALSE--> E{{'Todos os números precisam ser inteiros!'}} --> Z
+D --TRUE--> F[soma = n1 + n2 + n3 + n4]
+F --> G[media = soma/4]
+G --> H{{'O valor da média dos 4 números inteiros são: ', media}} --> Z
+
+Z([FIM])
+
+
+```
+### Exercício 3:
+Leia uma temperatura dada na escala Celsius (C) e imprima o equivalente em Fahrenheit (F). (Fórmula de conversão: F = (9/5) * C + 32)
+
+#### Fluxograma:
+
+```mermaid
+flowchart TD
+A([Inicio]) --> B{{'Digite um valor de temperatura na escala Celsius: '}}
+B --> C[/temp/]
+
+C --> D{temp < -275.15}
+D --False--> E[fah = temp*9/5 + 32]
+E --> F{{'O valor da temperatura em Fahrenheit vale: ', temp}} --> Z
+
+D --TRUE--> H{{'A tempetura não pode ser menor -275.15: o zero absoluto!'}} --> Z
+
+Z([FIM])
+
+
+```
+
+
+
+
+
+
+
+
 
 ### Exercício 20:
+
+Receba dois números reais e um operador (vide slide 9). e efetue a operação correspondente com os valores recebidos (operandos). O algoritmo deve retornar o resultado da operação selecionada simulando todas as opeações de uma calculadora simples.
+
+##### Fluxograma:
 
 ```mermaid
 flowchart TD
