@@ -79,6 +79,32 @@ D --TRUE--> G{{O valor do carro não pode ser negativo!}} --> Z
 Z([Fim])
 ```
 
+### Exercício 5:
+Calcule o quadrado de um número.
+
+#### Fluxograma:
+
+```mermaid
+flowchart TD
+
+A([Inicio]) --> B{{'Insira um valor: '}}
+B --> C[/n1/]
+C --> D[quadrado = n1**2]
+D --> E{{'O valor do quadrado do número inserido vale: ', quadrado}}
+E --> Z
+
+Z([Fim])
+```
+
+### Exercício 6:
+O cardápio de uma lanchonete é dado abaixo. Prepare um algoritmo que leia a quantidade de cada item que você consumiu e calcule a conta final.
+a) Hambúrguer................ R$ 3,00
+b) Cheeseburger.............. R$ 2,50
+c) Fritas.................... R$ 2,50
+d) Refrigerante ............. R$ 1,00
+e) Milkshake................. R$ 3,00
+
+#### Fluxograma:
 
 
 ### Exercício 20:
