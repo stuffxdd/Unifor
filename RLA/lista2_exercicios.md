@@ -17,9 +17,27 @@ F --> G[media = soma/4]
 G --> H{{'O valor da média dos 4 números inteiros são: ', media}} --> Z
 
 Z([FIM])
+```
 
+##### Pseudocódigo:
 
 ```
+ALGORITMO Media_4_notas
+ESCREVA "Insira 4 números inteiros: "
+DECLARE n1, n2, n3, n4: inteiro
+
+INICIO
+  LEIA n1, n2, n3, n4
+  SE n1 % 2 == 1 or n1 % 2 == 0 and n2 % 2 == 0 or n2 % 2 == 1 and n3 % 2 == 0 or n3 % 2 == 1 and n4 % 2 == 0 or n4 % 2 == 1 ENTAO
+    soma = n1+n2+n3+n4
+    media = soma / 4
+    ESCREVA "A sua média vale", media
+  SENAO
+    ESCREVA "Todos os números precisam ser inteiros!"
+  FIM_SE
+FIM
+```
+
 ### Exercício 2:
 Leia uma temperatura dada na escala Celsius (C) e imprima o equivalente em Fahrenheit (F). (Fórmula de conversão: F = (9/5) * C + 32)
 
