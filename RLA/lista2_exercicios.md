@@ -10,7 +10,7 @@ flowchart TD
 A([Inicio]) --> B{{'Insira 4 números inteiros: '}}
 B --> C[/n1, n2, n3, n4/]
 
-C --> D{n1 % 2 == 1 or n1 % 2 == 0 and n2 % 2 == 0 or n2 % 2 == 1 and n3 % 2 == 0 or n3 % 2 == 1 and n4 % 2 == 0 or n4 % 2 == 1}
+C --> D{n1 % 1 == 0 and n2 % 1 == 0 and n3 % 1 == 0 and n4 % 1 ==0}
 D --FALSE--> E{{'Todos os números precisam ser inteiros!'}} --> Z
 D --TRUE--> F[soma = n1 + n2 + n3 + n4]
 F --> G[media = soma/4]
