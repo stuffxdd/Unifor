@@ -24,11 +24,11 @@ Z([FIM])
 ```
 ALGORITMO Media_4_notas
 ESCREVA "Insira 4 números inteiros: "
-DECLARE n1, n2, n3, n4: inteiro
+DECLARE n1, n2, n3, n4, soma, media: inteiro
 
 INICIO
   LEIA n1, n2, n3, n4
-  SE n1 % 2 == 1 or n1 % 2 == 0 and n2 % 2 == 0 or n2 % 2 == 1 and n3 % 2 == 0 or n3 % 2 == 1 and n4 % 2 == 0 or n4 % 2 == 1 ENTAO
+  SE n1 % 1 == 1 and n2 % 1 == 0 and n3 % 1 == 0 and n4 % 1 == 0 ENTAO
     soma = n1+n2+n3+n4
     media = soma / 4
     ESCREVA "A sua média vale", media
