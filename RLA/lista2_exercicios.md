@@ -116,6 +116,7 @@ Z([Fim])
 
 ### Exercício 6:
 O cardápio de uma lanchonete é dado abaixo. Prepare um algoritmo que leia a quantidade de cada item que você consumiu e calcule a conta final.
+
 a) Hambúrguer................ R$ 3,00
 b) Cheeseburger.............. R$ 2,50
 c) Fritas.................... R$ 2,50
