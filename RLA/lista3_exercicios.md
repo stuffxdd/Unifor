@@ -13,7 +13,7 @@ flowchart TD
 
 A([Inicio]) --> B{{'Insira um valor inteiro e positivo: '}}
 B --> C[/n1/]
-C --> D{n1 % 1 != 0 and n1 < 0}
+C --> D{n1 % 1 != 0 OR n1 < 0}
 D --TRUE--> E{{'O valor digitado não é positivo ou inteiro. Insira o valor novamente.'}}
 E --> F[/n1/]
 
@@ -44,4 +44,22 @@ SENAO
 
 ```
 
-###
+#### Teste de mesa
+
+
+### Exercício 2:
+Faça um algoritmo que exiba na tela uma contagem de 0 até 30, exibindo apenas os múltiplos de 3.
+
+#### Fluxograma:
+
+```mermaid
+flowchart TD
+
+A([Inicio]) --> B[i DE 0 ATÉ 30 PASSO 1]
+B --> C{{'Número ', i}}
+C --> B
+
+```
+
+
+
