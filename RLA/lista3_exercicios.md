@@ -56,7 +56,7 @@ Faça um algoritmo que exiba na tela uma contagem de 0 até 30, exibindo apenas 
 flowchart TD
 
 A([Inicio]) --> B[i DE 0 ATÉ 30 PASSO 1]
-B --> C{{'Número ', i}}
+B --> C{{'Número ', i*3}}
 C --> B
 
 ```
