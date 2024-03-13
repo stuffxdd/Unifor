@@ -29,8 +29,8 @@ DECLARE n1, n2, n3, n4, soma, media: inteiro
 INICIO
   LEIA n1, n2, n3, n4
   SE n1 % 1 == 1 and n2 % 1 == 0 and n3 % 1 == 0 and n4 % 1 == 0 ENTAO
-    soma = n1+n2+n3+n4
-    media = soma / 4
+    soma <-- n1+n2+n3+n4
+    media <-- soma / 4
     ESCREVA "A sua média vale", media
   SENAO
     ESCREVA "Todos os números precisam ser inteiros!"
