@@ -55,7 +55,7 @@ Faça um algoritmo que exiba na tela uma contagem de 0 até 30, exibindo apenas 
 ```mermaid
 flowchart TD
 
-A([Inicio]) --> B[i DE 0 ATÉ 30 PASSO 1]
+A([Inicio]) --> B[[i=0 DE 0 ATÉ 30 PASSO 1]]
 B --> C{{'Número ', i*3}}
 C --> B
 
