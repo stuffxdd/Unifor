@@ -83,6 +83,22 @@ Z([Fim])
 #### Exercício 3: 
 
 
+#### Fluxograma:
+
+```mermaid
+flowchart TD
+
+A([Inicio]) --> B{{'O classificador de categorias só validarão as idades de 5 até 100 anos. Insira sua idade: '}}
+B --> C[/idade/]
+C --> D{idade < 5}
+D --> E{{'Idade inválida. Por favor, digite novamente: '}}
+E --> F[/idade/]
+F --> D
+D --> G{{idade >= 5 and idade < 8}}
+G --FALSE--> H{{a}}
+G --TRUE--> I{{'Sua categoria é infantil A.'}}
+
+```
 
 
 
