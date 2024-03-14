@@ -80,6 +80,12 @@ D --TRUE--> G{{'O valor inserido precisa ser positivo!}} --> Z
 Z([Fim])
 ```
 
+#### Exercício 3: 
+
+
+
+
+
 #### Exercício 4:
 
 O custo ao consumidor de um carro novo é a soma do custo de fábrica com a porcentagem do distribuidor e dos impostos, ambos aplicados ao custo de fábrica. Supondo que a porcentagem do distribuidor seja de 12% e a dos impostos de 45%, prepare um algoritmo para ler o custo de fábrica do carro e imprimir o custo ao consumidor.
