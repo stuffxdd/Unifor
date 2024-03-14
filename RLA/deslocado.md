@@ -1,5 +1,3 @@
 # Unifor
 
----
-
 ## Questões deslocadas:
