@@ -175,3 +175,10 @@ FIM
 | 5 | V | 6 | V | 11 | 5.5 | "Reprovado!" |
 | 10 | V | 10 | V | 20 | 10 | "Aprovado!" |
 
+### Exercício 04
+Represente, em fluxograma e pseudocódigo, um algoritmo que, apartir da idade da(o) candidata(o), determinar se pode ou não tirar a CNH. Caso não atender a restrição de idade, calcular quantos anos faltam para a(o) candidata(o) estar apta(o).
+
+##### Fluxograma:
+
+
+
