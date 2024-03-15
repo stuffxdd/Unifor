@@ -10,22 +10,19 @@ Represente, em fluxograma e pseudocódigo, um algoritmo para determinar se um n�
 
 ##### Fluxograma:
 
+
 ```mermaid
 flowchart TD
 A([Inicio]) --> B{{Digite um número positivo: }}
 B --> C[\numero\]
-C --> D{numero == 0}
-D --FALSE--> E{numero > 0}
-E --FALSE--> J{{O número precisa ser positivo.}} --> Z
-E --TRUE--> F{numero % 2 == 0}
-F --FALSE--> G{{O número é ímpar.}} --> Z
-F --TRUE--> H{{O número é par.}} --> Z
-D --TRUE--> I{{O valor precisa ser positivo. O zero é um valor neutro aditivo.}} --> Z
-
+C --> D{numero <= 0}
+D --FALSE--> E{numero % 2 == 0}
+E --FALSE--> F{{'O número é ímpar!'}} --> Z
+E --TRUE--> G{{'O número é par!'}} --> Z
+D --TRUE--> H{{'O número precisa positivo e maior que zero. Zero é elemento neutro aditivo. }} --> Z
 Z([Fim])
 
 ```
-
 
 #### Pseudocódigo:
 
@@ -36,32 +33,27 @@ ESCREVA "Digite um número: "
 INICIO
 LEIA numero
 
-SE numero == 0 ENTAO
-  ESCREVA "O número deve ser positivo. O número zero não é positivo e nem negativo; é elemento neutro aditivo."
+SE numero <= 0 ENTAO
+  ESCREVA "O número precisa ser positivo e maior que zero (zero é elemento neutro aditivo)."
 
 SENAO
-  SE numero > 0 ENTAO
-    SE numero % 2 == 0 ENTAO
-      ESCREVA "O número é par."
-    SENAO
-      ESCREVA "O número é ímpar."
-    FIM_SE
-
+  SE numero % 2 == 0 ENTAO
+    ESCREVA "O número é par."
   SENAO
-    ESCREVA "O número precisa ser positivo."
-  FIM_SE
+    ESCREVA "O número é ímpar."
+    FIM_SE
 FIM_SE
 FIM
 
 ```
 
 #### Teste de mesa:
-| numero | numero == 0 |numero > 0 | numero % 2 == 0 | Saída |
-| -- | ---  | -- | -- | ----  |
-| -1 | F | F |  |"O número deve ser positivo." |
-| 0  | V | F |  | "O número deve ser positivo. O 0 é elemento neutro aditivo." |
-| 15 | F | V | F | "O número é ímpar." |
-| 16 | F | V | V | "O número é par." |
+| numero | numero <= 0 | numero % 2 == 0 | Saída |
+| -- | ---  | -- | -- | 
+| -1 | V |  | "O número precisa ser positivo e maior que zero (zero é elemento neutro aditivo)." |
+| 0  | V |  | "O número precisa ser positivo e maior que zero (zero é elemento neutro aditivo)." |
+| 15 | V | F | "O número é ímpar." |
+| 16 | V | V | "O número é par." |
 
 ### Exercício 02
 
@@ -176,9 +168,50 @@ FIM
 | 10 | V | 10 | V | 20 | 10 | "Aprovado!" |
 
 ### Exercício 04
-Represente, em fluxograma e pseudocódigo, um algoritmo que, apartir da idade da(o) candidata(o), determinar se pode ou não tirar a CNH. Caso não atender a restrição de idade, calcular quantos anos faltam para a(o) candidata(o) estar apta(o).
+Represente, em fluxograma e pseudocódigo, um algoritmo que, a partir da idade da(o) candidata(o), determinar se pode ou não tirar a CNH. Caso não atender a restrição de idade, calcular quantos anos faltam para a(o) candidata(o) estar apta(o).
 
 ##### Fluxograma:
+
+```mermaid
+flowchart TD
+A([Inicio]) --> B{{'Insira sua idade: '}}
+B --> C[\idade\]
+C --> D{idade < 0}
+D --FALSE--> E{idade < 18}
+E --FALSE--> F{{'Você já está apto para retirar sua CNH.'}} --> Z
+E --TRUE--> G[faltam = 18 - idade]
+G --> H{{'Faltam ', faltam ' anos para que você possa retirar sua CNH.'}} --> Z
+D --TRUE--> I{{'A idade deve ser positiva!'}} --> Z
+Z([Fim])
+
+```
+
+#### Pseudocódigo:
+
+```
+ALGORITMO Calcula_idade_CNH
+DECLARE idade, faltam: INTEIRO
+ESCREVA "Insira sua idade: "
+INICIO
+LEIA idade
+SE idade < 0 ENTAO
+  ESCREVA "A idade deve ser positiva!"
+
+SENAO
+  SE idade < 18 ENTAO
+    faltam = 18 - idade
+    ESCREVA "Faltam ", faltam, " anos para que você possa retirar sua CNH."
+  SENAO
+    ESCREVA "Você já está apto para retirar sua CNH."
+  FIM_SE
+FIM_SE
+```
+
+#### Teste de mesa:
+
+| idade | idade < 0 | idade < 18 | faltam | Saída |
+| --- | --- | --- | --- | --- |
+| -5 | V | | | "A idade deve ser positiva" | 
 
 
 
