@@ -211,7 +211,10 @@ FIM_SE
 
 | idade | idade < 0 | idade < 18 | faltam | Saída |
 | --- | --- | --- | --- | --- |
-| -5 | V | | | "A idade deve ser positiva" | 
+| -5 | V | | | "A idade deve ser positiva" |
+| 2 | F | V | 18 - 2 = 16 | "Faltam 16 anos para que você possa retirar sua CNH." |
+| 18 | F | F | | "Você já está apto a retirar sua CNH."|
+
 
 
 
