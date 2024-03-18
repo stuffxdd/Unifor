@@ -45,3 +45,86 @@ J --> I
 | 1000 | Técnico | V | F | 1500 | “Salário Reajustado = 1500“ |
 | 2000 | Gerente | F | V | 2600 | “Salário Reajustado = 2600“ |
 | 9000 | Diretor | F | F | 9900 | “Salário Reajustado = 9900“ |
+
+
+## Exercício 01
+Calcule a média de quatro números inteiros dados
+
+### Fluxograma:
+
+```mermaid
+flowchart TD
+A([Inicio]) --> B{{'Digite 4 números inteiros: '}}
+B --> C[\n1, n2, n3, n4\]
+C --> D[soma= n1 + n2 + n3 +n4]
+D --> E[media = soma / 4]
+E --> F{{'O valor da média vale: ', media}} --> Z
+
+Z([Fim])
+
+```
+
+### Pseudocódigo:
+```
+ALGORITMO Media
+DECLARE n1, n2, n3, n4, soma: INT
+DECLARE media: FLOAT
+ESCREVA "Digite 4 números inteiros: "
+INICIO
+LEIA n1, n2, n3, n4
+soma = n1 + n2 + n3 + n4
+media = soma/4
+ESCREVA "A média vale: ", media
+FIM
+```
+
+### Teste de mesa:
+
+| n1 | n2 | n3 | n4 | soma | media | saída |
+| -- | -- | -- | -- | -- | -- | -- |
+| 0 | 5 | 3 | 7 | 15 | 7.5 | "A média vale: 7.5" |
+
+## Exercício 02
+Leia uma temperatura dada em Celsius (C) e impriida o equivalente em Fahrenheint (F). (Fórmmula de conversão: F = (9/5)*C + 32)
+
+### Fluxograma:
+
+```mermaid
+flowchart TD
+A([Inicio]) --> B{{'Insira o valor de temperatura em Celsius: '}}
+B --> C[\temp\]
+C --> D{temp < -273,15}
+D --FALSE--> E[nov_temp = 9*temp/5 + 32]
+E --> F{{'A temperatura correspondente em Fahrenheit vale: ', nov_temp, ' F'}} --> Z
+D --TRUE--> G{{'Valor inválido. A temperatura não pode ser menor que o zero absoluto, ou seja, -273,15 C!'}} --> Z
+
+Z([Fim])
+```
+
+### Pseudocódigo:
+
+```
+ALGORITMO ConverteCelsiusFarenheint
+DECLARE temp, nov_temp: FLOAT
+ESCREVA "Insira o valor de temperatura em Celsius: "
+LEIA temp
+SE temp < -273,15 ENTAO
+  ESCREVA "Valor inválido. A temperatura não pode ser menor que o zero absoluto, ou seja, -273,15 C!"
+SENAO
+  nov_temp = 9*temp/5 + 32
+  ESCREVA "A temperatura correspondente em Fahrenheit vale: ", nov_temp, " F"
+FIM_SE
+FIM
+
+```
+
+### Teste de mesa:
+
+| temp | temp < -273,15 | nov_temp | saída |
+| -- | -- | -- | -- |
+| -300 | V | | "Valor inválido. A temperatura não pode ser menor que o zero absoluto, ou seja, -273,15 C!"
+| 5 | F | 41.0 | A temperatura correspondente em Fahrenheit vale: 41.0 F'|
+
+## Exercício 03
+
+
