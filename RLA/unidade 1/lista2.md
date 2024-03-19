@@ -1,5 +1,5 @@
 # Unifor
-**Nome:** Francisco Luã Lima Cruz
+**Nome:** Francisco Luã Lima Cruz <br>
 **Disciplina:** Raciocínio lógico e algoritmo
 
 ## Exercício exemplo
@@ -122,9 +122,64 @@ FIM
 
 | temp | temp < -273,15 | nov_temp | saída |
 | -- | -- | -- | -- |
-| -300 | V | | "Valor inválido. A temperatura não pode ser menor que o zero absoluto, ou seja, -273,15 C!"
+| -300 | V | | "Valor inválido. A temperatura não pode ser menor que o zero absoluto, ou seja, -273,15 C!" |
 | 5 | F | 41.0 | A temperatura correspondente em Fahrenheit vale: 41.0 F'|
 
 ## Exercício 03
+Recebe dois números e um operador e efetue a operação corresondente com os valores recebidos (operandos). O aloritmo deve retornar o resultado da operação selecionada simulando todas as operações de uma calculadora simples.
 
+```mermaid
+flowchart TD
 
+A([Inicio]) --> B{{'Operadores válidos são: 1 - soma, 2 - subtração, 3 - multiplicação, 4 - divisão'}}
+B --> BB{{'Insira dois valores e um número correspondente a um operador: '}}
+BB--> C[/n1, n2, op/]
+
+C --> D{op != '1'}
+D -- FALSE--> E[soma = n1+n2]
+E --> F{{'A soma vale: ', soma}} --> ZZ
+
+D --TRUE--> G{op != '2'}
+G --FALSE--> H[sub = n1 - n2]
+H --> I{{'A subtração vale: ', sub}} --> ZZ
+
+G --TRUE--> J{op != '3'}
+J --FALSE--> K[mult = n1 * n2]
+K --> L{{'A multiplicação vale: ', mult}} --> ZZ
+
+J --TRUE--> M{op != '4'}
+M --FALSE--> N[div = n1 / n2]
+N --> O{{'A divisão vale: ', div}} --> ZZ
+M --TRUE--> P{{Digite um operador válido!}}
+```
+
+## Pseudocódigo:
+
+```
+ALGORITMO Calculadora
+DECLARE n1, n2, soma, mult, div: FLOAT
+DECLARE op: INTEIRO
+ESCREVA "Operadores válidos são: 1 - soma, 2 - subtração, 3 - multiplicação, 4 - divisão"
+ESCREVA "Insira dois valores e um número correspondente a um operador: "
+SE op == 1 ENTAO
+  soma = n1 + n2
+  ESCREVA "A soma vale: ", soma
+
+SENAO SE op == 2 ENTAO
+  sub = n1 - n2
+  ESCREVA "A subtração vale: ", sub
+
+SENAO SE op == 3 ENTAO
+  mult = n1 * n2
+  ESCREVA "A multiplicação vale: ", mult
+
+SENAO SE op == 4 ENTAO
+  div = n1 / n2
+  ESCREVA "A divisão vale: ", div
+
+SENAO
+  ESCREVA "Digite um operador válido!"
+
+FIM_SE
+FIM
+```
