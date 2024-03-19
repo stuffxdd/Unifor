@@ -131,26 +131,24 @@ Recebe dois números e um operador e efetue a operação corresondente com os va
 ```mermaid
 flowchart TD
 
-A([Inicio]) --> B{{'Operadores válidos são: 1 - soma, 2 - subtração, 3 - multiplicação, 4 - divisão'}}
-B --> BB{{'Insira dois valores e um número correspondente a um operador: '}}
+
+A([Inicio]) --> B{{'Operadores válidos são: +, -, *, /'}}
+B --> BB{{'Insira dois valores e um número operador aritmético: '}}
 BB--> C[/n1, n2, op/]
 
-C --> D{op != '1'}
-D -- FALSE--> E[soma = n1+n2]
-E --> F{{'A soma vale: ', soma}} --> ZZ
-
-D --TRUE--> G{op != '2'}
-G --FALSE--> H[sub = n1 - n2]
-H --> I{{'A subtração vale: ', sub}} --> ZZ
-
-G --TRUE--> J{op != '3'}
-J --FALSE--> K[mult = n1 * n2]
-K --> L{{'A multiplicação vale: ', mult}} --> ZZ
-
-J --TRUE--> M{op != '4'}
-M --FALSE--> N[div = n1 / n2]
-N --> O{{'A divisão vale: ', div}} --> ZZ
-M --TRUE--> P{{Digite um operador válido!}}
+C --> D{op == '+'}
+D --FALSE-->E{op == '-'}
+E --FALSE--> F{op == '*'}
+F --FALSE--> G{op == '/'}
+G --FALSE--> H{{'Digite um operador válido!'}} --> Z
+D --TRUE--> I[soma = n1+n2]
+I --> J{{'A soma vale: ', soma}}
+E --TRUE--> K[sub = n1 - n2]
+K --> L{{'A subtração vale: ', sub}}
+F --TRUE--> M[mult = n1*n2]
+M --> N{{'A multiplicação vale: ', mult}}
+G --TRUE--> O[div = n1/n2]
+Z([Fim])
 ```
 
 ## Pseudocódigo:
@@ -159,21 +157,21 @@ M --TRUE--> P{{Digite um operador válido!}}
 ALGORITMO Calculadora
 DECLARE n1, n2, soma, mult, div: FLOAT
 DECLARE op: INTEIRO
-ESCREVA "Operadores válidos são: 1 - soma, 2 - subtração, 3 - multiplicação, 4 - divisão"
+ESCREVA "Operadores válidos são: +, - , *, /"
 ESCREVA "Insira dois valores e um número correspondente a um operador: "
-SE op == 1 ENTAO
+SE op == '+' ENTAO
   soma = n1 + n2
   ESCREVA "A soma vale: ", soma
 
-SENAO SE op == 2 ENTAO
+SENAO SE op == '-' ENTAO
   sub = n1 - n2
   ESCREVA "A subtração vale: ", sub
 
-SENAO SE op == 3 ENTAO
+SENAO SE op == '*' ENTAO
   mult = n1 * n2
   ESCREVA "A multiplicação vale: ", mult
 
-SENAO SE op == 4 ENTAO
+SENAO SE op == '/' ENTAO
   div = n1 / n2
   ESCREVA "A divisão vale: ", div
 
@@ -184,6 +182,68 @@ FIM_SE
 FIM
 ```
 
+### Teste de mesa:
+
+| n1 | n2 | n1 + n2|
+
 ## Exercício 04
-Elaborar um algoritmo que, dada a idadem classifique nas categorias: infantil A (5 - 7 anos), infantil B (8 - 10 anos), juvenil A (11 - 13 anos), juvenil B (14 - 17) e adulto (maiores que 18 anos)
+Elaborar um algoritmo que, dada a idadem classifique nas categorias: infantil A (5 - 7 anos), infantil B (8 - 10 anos), juvenil A (11 - 13 anos), juvenil B (14 - 17) e adulto (maiores que 18 anos).
+
+### Fluxograma:
+
+```mermaid
+flowchart TD
+
+
+A([Inicio]) --> C{{'As idades para uma classificação válida são de 5 anos em diante. Digite sua idade para ser classificado: '}}
+C --> D[\idade\]
+D --> E{idade >= 5 AND idade <= 7}
+E --FALSE--> F{idade >= 8 AND idade <= 10}
+F --FALSE--> G{idade >= 11 AND idade <= 13}
+G --FALSE--> H{idade >=14 AND idade <= 17}
+H --FALSE--> I{idade >=18}
+I --FALSE--> J{{Idade inválida! Digite uma idade maior ou igual a 5 anos.}} --> Z
+E --TRUE--> K{{'Categoria: Infantil A'}} --> Z
+F --TRUE--> L{{'Categoria: Infantil B'}} --> Z
+G --TRUE--> M{{'Cateogira: Juvenil A'}} --> Z
+H --TRUE--> N{{'Categoria: Juvenil B'}} --> Z
+I --TRUE--> O{{'Categoria: Adulto'}} --> Z
+
+Z([Fim])
+```
+
+### Pseudocódigo:
+
+```
+ALGORITMO ClassificaCategoria
+DECLARE idade
+ESCREVA "As idades para uma classificação válida são de 5 anos em diante. Digite sua idade para ser classificado: "
+INICIO
+LEIA idade
+SE idade >= 5 AND idade <= 7 ENTAO
+  ESCREVA "Categoria: Infantil A"
+SENAO SE idade >= 8 AND idade <= 10 ENTAO
+  ESCREVA "Categoria: Infantil B"
+SENAO SE idade >= 11 AND idade <= 13 ENTAO
+  ESCREVA "Categoria: Juvenil A"
+SENAO SE idade >= 14 AND idade <= 17 ENTAO
+  ESCREVA "Categoria: Juvenil B"
+SENAO SE idade >= 18 ENTAO
+  ESCREVA "Categoria: Adulto"
+SENAO
+  ESCREVA "Idade inválida! Digite uma idade maior ou igual a 5 anos."
+FIM_SE
+FIM
+```
+
+### Teste de mesa:
+
+| idade | idade >= 5 AND idade <= 7|idade >= 8 AND idade <=10 | idade >= 11 AND idade <= 13 | idade >=14 AND idade <= 17 | idade >= 18 | Saída |
+| -- | -- | -- | -- | -- | -- | -- |
+| 0 | F | F | F | F | F |"Idade inválida! Digite uma idade maior ou igual a 5 anos."
+| 6 | V | F | F | F | F |"Categoria: Infantil A" |
+| 9 | F | V | F | F | F |"Categoria: Infantil B" |
+| 12 | F | F | V | F | F| "Categoria: Juvenil A" |
+| 15 | F | F | F | V | F | "Categoria: Juvenil B" |
+| 19 | F | F | F | F | V | "Categoria: Adulto" |
 
