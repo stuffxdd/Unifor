@@ -123,7 +123,7 @@ FIM
 | temp | temp < -273,15 | nov_temp | saída |
 | -- | -- | -- | -- |
 | -300 | V | | "Valor inválido. A temperatura não pode ser menor que o zero absoluto, ou seja, -273,15 C!" |
-| 5 | F | 41.0 | A temperatura correspondente em Fahrenheit vale: 41.0 F'|
+| 5 | F | 41.0 | "A temperatura correspondente em Fahrenheit vale: 41.0 F."|
 
 ## Exercício 03
 Recebe dois números e um operador e efetue a operação corresondente com os valores recebidos (operandos). O aloritmo deve retornar o resultado da operação selecionada simulando todas as operações de uma calculadora simples.
@@ -141,13 +141,14 @@ D --FALSE-->E{op == '-'}
 E --FALSE--> F{op == '*'}
 F --FALSE--> G{op == '/'}
 G --FALSE--> H{{'Digite um operador válido!'}} --> Z
-D --TRUE--> I[soma = n1+n2]
-I --> J{{'A soma vale: ', soma}}
+D --TRUE--> I[soma = n1+n2] 
+I --> J{{'A soma vale: ', soma}} --> Z 
 E --TRUE--> K[sub = n1 - n2]
-K --> L{{'A subtração vale: ', sub}}
+K --> L{{'A subtração vale: ', sub}} --> Z
 F --TRUE--> M[mult = n1*n2]
-M --> N{{'A multiplicação vale: ', mult}}
+M --> N{{'A multiplicação vale: ', mult}} --> Z
 G --TRUE--> O[div = n1/n2]
+O --> P{{'A divisão vale: ', div}} --> Z
 Z([Fim])
 ```
 
@@ -187,6 +188,10 @@ FIM
 | n1 | n2 | op | op == '+'| op == '-'| op == '*' | op == '/'| n1 + n2| n1 - n2| n1\*n2| n1/n2 | Saída |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | 1 | 2 | a | F | F | F | F | | | | | "Digite um operador válido!" |
+| -5 | 6 | + | V | F | F | F | 1 | | | | "O valor da soma vale: 1"|
+| 1 | 3 | - | F | V | F | F | | -2 | | | "O valor da subtração vale: -2"|
+| 1 | 7 | *\ | F | F | V | F | | | 7 | | "O valor da multiplicação vale: 7"|
+| 10 | 2 | / | F | F | F | V | | | | 5 | "O valor da divisão vale: 5" |
 
 
 ## Exercício 04
