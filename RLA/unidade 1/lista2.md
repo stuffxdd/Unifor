@@ -183,3 +183,7 @@ SENAO
 FIM_SE
 FIM
 ```
+
+## Exercício 04
+Elaborar um algoritmo que, dada a idadem classifique nas categorias: infantil A (5 - 7 anos), infantil B (8 - 10 anos), juvenil A (11 - 13 anos), juvenil B (14 - 17) e adulto (maiores que 18 anos)
+
