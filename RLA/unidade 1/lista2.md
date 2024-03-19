@@ -151,7 +151,7 @@ G --TRUE--> O[div = n1/n2]
 Z([Fim])
 ```
 
-## Pseudocódigo:
+### Pseudocódigo:
 
 ```
 ALGORITMO Calculadora
@@ -184,7 +184,10 @@ FIM
 
 ### Teste de mesa:
 
-| n1 | n2 | n1 + n2|
+| n1 | n2 | op | op == '+'| op == '-'| op == '*' | op == '/'| n1 + n2| n1 - n2| n1\*n2| n1/n2 | Saída |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| 1 | 2 | a | F | F | F | F | | | | | "Digite um operador válido!" |
+
 
 ## Exercício 04
 Elaborar um algoritmo que, dada a idadem classifique nas categorias: infantil A (5 - 7 anos), infantil B (8 - 10 anos), juvenil A (11 - 13 anos), juvenil B (14 - 17) e adulto (maiores que 18 anos).
