@@ -79,7 +79,19 @@ FIM
 ```
 
 ### Teste de mesa:
-
+| it | i | Saida |
+| -- | -- | -- |
+| 1 | 0 | "Número: 0" |
+| 2 | 3 | "Número: 3" |
+| 3 | 6 | "Número: 6" |
+| 4 | 9 | "Número: 9" |
+| 5 | 12 | "Número: 12" |
+| 6 | 15 | "Número: 15" |
+| 7 | 18 | "Número: 18" |
+| 8 | 21 | "Número: 21" |
+| 9 | 24 | "Número: 24" |
+| 10 | 27 | "Número: 27" |
+| 11 | 30 | "Número: 30" |
 
 ## Exercício 03
 Dada uma sequência de números inteiros, calcular a sua soma. Por exemplo, para a sequência {12, 17, 4, -6, 8, 0}, o seu programa deve escrever o número 35.
