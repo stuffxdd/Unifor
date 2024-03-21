@@ -83,8 +83,8 @@ K --LOOP--> F
 ```
 DECLARE i, cont, n: INT
 DECLARE nota: FLOAT
-INICIO
 ESCREVA "Digite o número de alunos: "  // Solicita o número de alunos
+INICIO
 LEIA n                                // Guarda o número de alunos na variável "n"
 i <- 1                                // Atribui o valor 1 à variável "i". Isso serve como uma flag para sair do loop while
 cont <- 0                             // Atribui o valor 0 à "cont". Essa variável serve para contar o número de alunos aprovados
@@ -206,13 +206,13 @@ DECLARE n: INT
 DECLARE soma, numerador, denominador, termo: FLOAT
 ESCREVA "Digite o número de termos da série S: "
 INICIO
-LEIA n
+LEIA n                        // Guarda na variável "n" o valor da quantidade de termos da série S
 S <- 0
-PARA i de 0 ATÉ n PASSO 1
-  numerador <- 2*i + 1
-  denominador <- 2*i + 2
+PARA i de 0 ATÉ n PASSO 1     // Inicia a variável "i" com 0 que irá até "n" (quantidade de termos) incrementando 1
+  numerador <- 2*i + 1        // O numerador é ímpar
+  denominador <- 2*i + 2      // O denominador é par
   termo = numerador / denominador
-  S <- S + termo
+  S <- S + termo              // Acumula a soma dos termos
 FIM_PARA
 ESCREVA "Soma da série S é: ", S
 FIM
@@ -257,16 +257,16 @@ ALGORITMO CalcFatorial
 DECLARE n, fator: INT
 ESCREVA "Digite um número inteiro nao-negativo: "
 INICIO
-LEIA n
+LEIA n             // Armazena o número que será tirado o fatorial
 SE n >= 0 ENTAO
-  fator <- 1  // É
-  PARA i DE 1 até n
-    fator <- fator * i
+  fator <- 1       // Inicializa o fator como 1. Essa variável será utilizada como acumuladora de multiplicações
+  PARA i DE 1 até n PASSO 1
+    fator <- fator * i  // Acumula sucessivas multiplicações
   FIM_PARA
-  ESCREVA "O vatorial de ", n, " é: ", fator
+  ESCREVA "O fatorial de ", n, " é: ", fator
 
 SENAO
-  ESCREVA "O valor deve ser maior ou igual a zero!
+  ESCREVA "O valor deve ser maior ou igual a zero!"
 FIM_SE
 FIM
 ```
@@ -292,13 +292,15 @@ ALGORITMO GeraFibonacci
 DECLARE a, b, n, termo_atual: INT
 ESCREVA "Digite o número de termos da série de Fibonacci: "
 INICIO
-LEIA n
-a <- 0
+LEIA n    // Armazena na variável "n" o número de termos da série
+// Essas duas variáveis são inicializadas antes, pois elas não dependem de números anteriores para serem geradas
+a <- 0 
 b <- 1
-PARA i DE 0 ATÉ n PASSO 1
-  ESCREVA a
-  termo_atual = a + b
-  a <- b
+PARA i DE 0 ATÉ n PASSO 1  // Repete esses passos até que "i" atinga "n"
+  ESCREVA a // Imprime o primeiro valor da sequência 
+  termo_atual = a + b    // Gera o próximo termo
+  // Essas atribuições são feitas para atualizar as variáveis, tornando possível a determinação do próximo termo da sequência
+  a <- b                
   b <- termo_atual
 FIM_PARA
 FIM
@@ -336,19 +338,19 @@ K --LOOP--> H
 D --FALSE--> E{{O número deve ser positivo!}}
 E --> W
 ```
-#### Pseudocódigo
-
+#### Pseudocódigo 1
+Estou levando em conta o fluxograma já feito!
 ```
 ALGORITMO InverteInteiro
 DECLARE num, num_inv, digito: INT
-ESCREVA "Digite um número inteiro: "
+ESCREVA "Digite um número inteiro e positivo: "
 INICIO
 LEIA num
-SE num >= 0 ENTAO
-  num_inv <- 0
+SE num >= 0 ENTAO      // Verifica se o número é positivo e maior que zero
+  num_inv <- 0         //
   ENQUANTO num > 0 FAÇA
-    digito <- num % 10 // Pega o resto do número (Ex. 14 --> 4)
-    num = num // 10  // Pega a parte inteiro do número (Ex. 14 --> 1)
+    digito <- num % 10     // Pega o resto do número (Ex. 14 --> 4)
+    num = num // 10        // Pega a parte inteiro do número (Ex. 14 --> 1)
     num_inv <- num_inv*10 + digito
   FIM_ENQUANTO
   ESCREVA "Número invertido: ", num_inv
@@ -358,7 +360,29 @@ FIM_SE
 FIM
 ```
 
-#### Teste de mesa
+#### Pseudocódigo 2:
+Não estou levando em conta o fluxograma! A diferença é que não necessita do while
+
+```
+ALGORITMO InverteNumeros
+DECLARE num, num_inv, dezena, unidade: INT
+ESCREVA "Digite um número inteiro e positivo: "
+INICIO
+LEIA num                              // Exemp.: (52)
+SE num > 0 ENTAO
+  dezena = num % 10                   // (52 --> 2)
+  unidade = num // 10                 // (52 --> 5)
+  num_inv = dezena*10 + unidade       // (2*10 + 5)
+SENAO SE num == 0 ENTAO
+  ESCREVA "O número zero não é positivo! É elemento neutro aditivo!"
+
+SENAO
+  ESCREVA "O número deve ser maior que zero!"
+FIM_SE
+FIM
+```
+
+#### Teste de mesa do algoritmo 1
 
 | it | num | num_inv | num > 0 | digito | num = num // 10 | num_inv = (num_inv * 10) + digito | Saída                       |
 | -- | --  | --      | --     | --      | --              | --                                | --                          |
