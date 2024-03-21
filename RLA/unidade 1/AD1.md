@@ -54,7 +54,7 @@ FIM
 | -- | -- | --  | -- | -- | --      | --      | 
 | 0  | 1  | 0   | 1  | 0  | a = 1   | b = 0   |
 
-## Questão 2 - Contagem (1 ponto)
+## Questão 2 - Contagem 
 Dado um conjunto $n$ de notas de alunos em um exame, implemente e teste um algoritmo para fazer uma contagem $cont$ do número de alunos que foram aprovados no exame. 
 Será considerado aprovado o aluno que tirar $nota$ 50 ou maior (no intervalo de 0 a 100).
 
@@ -102,6 +102,15 @@ ESCREVA "O número de alunos aprovados foram: ", cont
 FIM
 ```
 
+#### Teste de mesa:
+```
+| it | n  | i  | cont | i<=n  | nota, i | nota | nota_valida | cont+1 | i+1 | saída        | 
+| -- | -- | -- | --   | --    | --      | --   | --          | --     | --  | --           |
+| 1  | 3  | 1  |  0   | True  | nota 1  | 60   | True        | 1      | 2   |              |
+| 2  | 3  | 2  |  1   | True  | nota 2  | 40   | False       | 1      | 3   |              |
+| 3  | 3  | 3  |  1   | True  | nota 3  | 90   | True        | 2      | 4   |              |
+| 4  | 3  | 4  |  2   | False |         |      |             |        |     | Aprovados: 2 |
+```
 #### Questão 3 - Soma de um conjunto de números (1 ponto)
 
 Dado um conjunto de $n$ números, implemente e teste um algoritmo para calcular a soma desses números. <br>
@@ -170,6 +179,8 @@ FIM_SE
 Dado um conjunto de $n$ termos da série, implemente e teste um algoritmo para calcular o valor de S, conforme definido abaixo:
 
 $$ S = \frac{1}{2} + \frac{3}{4} + \frac{5}{6} + \frac{7}{8} + \dots $$
+
+#### Fluxograma:
 
 ```mermaid
 flowchart TD
@@ -259,6 +270,16 @@ FIM_SE
 FIM
 ```
 
+#### Teste de mesa:
+
+```
+| n  | fator | i  | fator = fator * i | saída               |
+| -- | --    | -- | --                | --                  |
+| 3  | 1     | 1  | 1*1 = 1           |                     |
+| 3  | 1     | 2  | 1*2 = 2           |                     |
+| 3  | 2     | 3  | 2*3 = 6           | O fatorial de 3 é 6 |
+```
+
 ## Questão 6 - Geração da sequência de Fibonacci
 Gerar e imprimir os $n$ primeiros termos da sequência de Fibonacci, onde $n ≥ 1$. <br>
 Os primeiros termos são: $0, 1, 1, 2, 3, 5, 8, 13, \dots$. Cada termo, além dos dois primeiros, é derivado da soma dos seus dois antecessores mais próximos.
@@ -292,3 +313,55 @@ FIM
 | 4  | 5  | 2  | 3  | 4  | 2     | 2 + 3 = 5           | 3     | 5               |
 | 4  | 5  | 3  | 5  | 5  | 3     | 3 + 5 = 8           | 5     | 8               |
 
+## Questão 7 - Inversão dos dígitos de um número inteiro
+Implemente e teste um algoritmo para inverter a ordem dos dígitos de um número inteiro positivo.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite um número inteiro: }}
+B --> C[\num\]
+C --> D{num >= 0}
+D --TRUE--> G[num_inv = 0]
+G --> H{num > 0}
+H --FALSE--> Z{{"Número invertido:", numero_inv}}
+Z --> W([FIM])
+H --TRUE--> I[digito = num % 10]
+I --> J[num_inv = num_inv * 10 + digito]
+J --> K[numero = numero // 10]
+K --LOOP--> H
+D --FALSE--> E{{O número deve ser positivo!}}
+E --> W
+```
+#### Pseudocódigo
+
+```
+ALGORITMO InverteInteiro
+DECLARE num, num_inv, digito: INT
+INICIO
+ESCREVA "Digite um número inteiro: "
+LEIA num
+SE num >= 0 ENTAO
+  num_inv <- 0
+  ENQUANTO num > 0 FAÇA
+    digito <- num % 10 // Pega o resto do número (Ex. 14 --> 4)
+    num = num // 10  // Pega a parte inteiro do número (Ex. 14 --> 1)
+    num_inv <- num_inv*10 + digito
+  FIM_ENQUANTO
+  ESCREVA "Número invertido: ", num_inv
+SENAO
+  ESCREVA "O número deve ser positivo!"
+FIM_SE
+
+```
+
+#### Teste de mesa
+
+| it | num | num_inv | num > 0 | digito | num = num // 10 | num_inv = (num_inv * 10) + digito | Saída                       |
+| -- | --  | --      | --     | --      | --              | --                                | --                          |
+|    | -1  | 0       | False  |         |                 |                                   | O número deve ser positivo! |
+| 1  | 0   | 0       | False  |         |                 |                                   | Número invertido:: 0        |
+| 1  | 42  | 0       | True   | 2       | 4               | 2                                 |                             |
+| 2  | 4   | 2       | True   | 4       | 0               | 24                                |                             |
+| 3  | 0   | 24      | False  |         |                 |                                   | Número invertido:: 24       |
