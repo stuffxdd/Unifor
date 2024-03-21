@@ -1,4 +1,4 @@
-# Unifor:
+# Unifor
 
 **Nome:** Francisco Luã <br>
 **Disciplina:** Raciocínio lógico algorítmico
