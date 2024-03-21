@@ -103,14 +103,14 @@ FIM
 ```
 
 #### Teste de mesa:
-```
+
 | it | n  | i  | cont | i<=n  | nota, i | nota | nota_valida | cont+1 | i+1 | saída        | 
 | -- | -- | -- | --   | --    | --      | --   | --          | --     | --  | --           |
 | 1  | 3  | 1  |  0   | True  | nota 1  | 60   | True        | 1      | 2   |              |
 | 2  | 3  | 2  |  1   | True  | nota 2  | 40   | False       | 1      | 3   |              |
 | 3  | 3  | 3  |  1   | True  | nota 3  | 90   | True        | 2      | 4   |              |
 | 4  | 3  | 4  |  2   | False |         |      |             |        |     | Aprovados: 2 |
-```
+
 #### Questão 3 - Soma de um conjunto de números (1 ponto)
 
 Dado um conjunto de $n$ números, implemente e teste um algoritmo para calcular a soma desses números. <br>
@@ -163,7 +163,7 @@ FIM
 ```
 #### Teste de mesa:
 
-```
+
 | it | n  | n >= 0 | soma | i  | i <= n | num | soma =+ num  | saída                   |
 | -- | -- | --     | --   | -- | --     | --  | --           | --                      |
 |    | -3 | False  |      |    |        |     |              | O valor deve ser ...    |
@@ -173,7 +173,6 @@ FIM
 | 3  | 3  | True   | 15   | 3  | True   | 20  | 15 + 20 = 35 |                         |
 | 4  | 3  | True   | 35   | 4  | False  |     |              | A soma dos números é 35 |
 
-```
 
 ## Questão 4 - Cálculo de uma série
 
