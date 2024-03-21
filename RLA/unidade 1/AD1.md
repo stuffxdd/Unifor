@@ -8,7 +8,7 @@
 **Aluno(a):** Francisco Luã Lima Cruz <br>
 **Matrícula:** 2413102 <br>
 
-**1a chamada (Sim/Não):** Não <br>
+**1a chamada (Sim/Não):** Sim <br>
 **2a chamada (Sim/Não):** Não
 
 ## Questão 1 - Troca dos valores de duas variáveis (1 ponto)
