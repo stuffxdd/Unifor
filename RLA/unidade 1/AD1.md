@@ -190,8 +190,105 @@ I --LOOP--> E
 
 ```
 ALGORITMO SomaSerie
-DECLARE n, 
-
+DECLARE n: INT
+DECLARE soma, numerador, denominador, termo: FLOAT
+INICIO
+ESCREVA "Digite o número de termos da série S: "
+LEIA n
+S <- 0
+PARA i de 0 ATÉ n PASSO 1
+  numerador <- 2*i + 1
+  denominador <- 2*i + 2
+  termo = numerador / denominador
+  S <- S + termo
+FIM_PARA
+ESCREVA "Soma da série S é: ", S
+FIM
 ```
 
+#### Teste de mesa:
+```
+| it | n  | S  | i | numerador | denominador | termo | S += termo     | saída                  |
+| -- | -- | -- |-- | --        | --          | --    | --             | --                     |
+|    | 0  | 0  |   |           |             |       |                |                        |
+| 1  | 4  | 0  | 0 | 2*0+1 = 1 | 2*0+2 = 2   | 1/2   | 0+1/2 = 1/2    |                        |
+| 2  | 4  | 0  | 1 | 2*1+1 = 1 | 2*1+2 = 2   | 3/4   | 1/2+3/4 = 1.25 |                        |
+| 3  | 4  | 0  | 2 | 2*2+1 = 1 | 2*2+2 = 2   | 5/6   | 0+1/2 = 2.08   |                        |
+| 4  | 4  | 0  | 3 | 2*3+1 = 1 | 2*3+2 = 2   | 7/8   | 0+1/2 = 2.96   | Soma da série S é 2.96 |
+```
+
+## Questão 5 - Cálculo fatorial
+
+Dado um número $n$, implemente e teste um algoritmo para calcular o fatorial de $n$ (escrito como $n!$), onde $n ≥ 0$.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{"Digite um numero inteiro nao-negativo:"}}
+B --> C[/n/]
+C --> D{n >= 0}
+D --TRUE--> E[fator = 1]
+D --FALSE--> J{{O valor deve ser maior ou igual a zero!}}
+J --> I([FIM])
+E --> F[[i=1 ATÉ n PASSO 1]]
+F --"i > n"--> H{{O fatorial de, n, é:, fator}}
+F --"i=1,2,..n"--> G[fator = fator * i]
+G --LOOP--> F
+H --> I
+```
+
+#### Pseudocódigo:
+
+```
+ALGORITMO CalcFatorial
+DECLARE n, fator: INT
+INICIO
+ESCREVA "Digite um número inteiro nao-negativo: "
+LEIA n
+SE n >= 0 ENTAO
+  fator <- 1  // É
+  PARA i DE 1 até n
+    fator <- fator * i
+  FIM_PARA
+  ESCREVA "O vatorial de ", n, " é: ", fator
+
+SENAO
+  ESCREVA "O valor deve ser maior ou igual a zero!
+FIM_SE
+FIM
+```
+
+## Questão 6 - Geração da sequência de Fibonacci
+Gerar e imprimir os $n$ primeiros termos da sequência de Fibonacci, onde $n ≥ 1$. <br>
+Os primeiros termos são: $0, 1, 1, 2, 3, 5, 8, 13, \dots$. Cada termo, além dos dois primeiros, é derivado da soma dos seus dois antecessores mais próximos.
+
+
+#### Pseudocódigo:
+```
+ALGORITMO GeraFibonacci
+DECLARE a, b, n, termo_atual: INT
+ESCREVA "Digite o número de termos da série de Fibonacci: "
+LEIA n
+a <- 0
+b <- 1
+PARA i DE 0 ATÉ n PASSO 1
+  ESCREVA a
+  termo_atual = a + b
+  a <- b
+  b <- termo_atual
+FIM_PARA
+FIM
+```
+
+#### Teste de mesa:
+
+
+| it | n  | a  | b  | i  | saída | termo_atual = a + b | a = b | b = termo_atual |
+| -- | -- | -- | -- | -- | --    | --                  | --    | --              |
+| 1  | 5  | 0  | 1  | 1  | 0     | 0 + 1 = 1           | 1     | 1               |
+| 2  | 5  | 1  | 1  | 2  | 1     | 1 + 1 = 2           | 1     | 2               |
+| 3  | 5  | 1  | 2  | 3  | 1     | 1 + 2 = 3           | 2     | 3               |
+| 4  | 5  | 2  | 3  | 4  | 2     | 2 + 3 = 5           | 3     | 5               |
+| 4  | 5  | 3  | 5  | 5  | 3     | 3 + 5 = 8           | 5     | 8               |
 
