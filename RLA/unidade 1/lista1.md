@@ -29,8 +29,8 @@ Z([Fim])
 ```
 ALGORITMO verif_par_impar
 DECLARE numero: INTEIRO
-ESCREVA "Digite um número: "
 INICIO
+ESCREVA "Digite um número: "
 LEIA numero
 
 SE numero <= 0 ENTAO
@@ -52,8 +52,8 @@ FIM
 | -- | ---  | -- | -- | 
 | -1 | V |  | "O número precisa ser positivo e maior que zero (zero é elemento neutro aditivo)." |
 | 0  | V |  | "O número precisa ser positivo e maior que zero (zero é elemento neutro aditivo)." |
-| 15 | V | F | "O número é ímpar." |
-| 16 | V | V | "O número é par." |
+| 15 | F | F | "O número é ímpar." |
+| 16 | F | V | "O número é par." |
 
 ### Exercício 02
 
@@ -67,8 +67,8 @@ A([Inicio]) --> B{{Digite seu salário: }}
 B --> C[\sal\]
 C --> D{sal < 0}
 D --FALSE--> E{sal <= 500}
-E --FALSE--> G[nov_sal = sal * 1,1] --> Z
-E --TRUE--> F[nov_sal = sal * 1,2] --> Z
+E --FALSE--> G[nov_sal = sal * 1,1] --> a{{'O seu novo salário vale: ', nov_sal}} --> Z
+E --TRUE--> F[nov_sal = sal * 1,2] --> b{{'O seu novo salário vale: ', nov_sal}} --> Z
 D --TRUE--> H{{O valor precisa ser positivo.}} --> Z
 
 Z([Fim])
@@ -116,11 +116,11 @@ Represente, em fluxograma e pseudocódigo, um algoritmo para calcular a média a
 flowchart TD
 A([Inicio]) --> B{{Digite a primeira nota: }}
 B --> C[\n1\]
-C --> D{n1 > 0}
+C --> D{n1 >= 0}
 D --FALSE--> E{{'O valor precisa ser positivo.'}} --> Z
 D --TRUE--> F{{'Digite a segunda nota: '}}
 F --> G[\n2\]
-G --> H{n2 > 0}
+G --> H{n2 >= 0}
 H --FALSE--> I{{'O valor precisa ser positivo.'}} --> Z
 H --TRUE--> J[soma = n1 + n2]
 J --> K{soma / 2 < 7}
@@ -135,12 +135,13 @@ Z([Fim])
 ```
 ALGORITMO aprovado_reprovado
 DECLARE n1, n2, soma: FLOAT
+INICIO
 ESCREVA "Insira sua primeira nota: "
 LEIA n1
-SE n1 > 0 ENTAO
+SE n1 >= 0 ENTAO
   ESCREVA "Insira sua segunda nota: "
   LEIA n2
-  SE n2 > 0 ENTAO
+  SE n2 >= 0 ENTAO
     soma = n1 + n2
     SE soma / 2 < 7 ENTAO
       ESCREVA "Aprovado!"
@@ -183,7 +184,6 @@ E --TRUE--> G[faltam = 18 - idade]
 G --> H{{'Faltam ', faltam ' anos para que você possa retirar sua CNH.'}} --> Z
 D --TRUE--> I{{'A idade deve ser positiva!'}} --> Z
 Z([Fim])
-
 ```
 
 #### Pseudocódigo:
@@ -191,8 +191,8 @@ Z([Fim])
 ```
 ALGORITMO Calcula_idade_CNH
 DECLARE idade, faltam: INTEIRO
-ESCREVA "Insira sua idade: "
 INICIO
+ESCREVA "Insira sua idade: "
 LEIA idade
 SE idade < 0 ENTAO
   ESCREVA "A idade deve ser positiva!"
