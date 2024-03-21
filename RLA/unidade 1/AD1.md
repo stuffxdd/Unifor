@@ -2,7 +2,7 @@
 
 **Curso:** Ciência da Computação <br>
 **Disciplina:** Raciocínio Lógico e Algorítmico <br>
-**Código/Turma:** preencha com seus dados <br>
+**Código/Turma:** T160 - 60 <br>
 **Professor:** Ricardo Carubbi <br>
 **Data:** 21/03/2024 <br>
 **Aluno(a):** Francisco Luã Lima Cruz <br>
