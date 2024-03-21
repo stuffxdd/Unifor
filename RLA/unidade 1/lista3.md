@@ -101,10 +101,10 @@ Dada uma sequência de números inteiros, calcular a sua soma. Por exemplo, para
 ```mermaid
 flowchart TD
 A([Inicio]) --> B{{'Escreva os números que você queira somar. A quantidade de números pode ser qualquer uma.'}}
-B --> C{{'Digite Q ou q quando finalizar sua lista de números:'}}
+B --> C{{'Digite -1 quando finalizar sua lista de números:'}}
 C --> D[flag = TRUE]
 D --> E[soma = 0]
-E --> F{ENQUANTO flag}
+E --> F{flag}
 F --FALSE--> G{{'A sua soma vale: ', soma}} --> Z
 F --TRUE--> H[\n\]
 H --> I{n == 'Q' OR n == 'q'}
@@ -128,12 +128,12 @@ ESCREVA "Digite Q ou q quando finalizar sua lista de números:"
 
 flag <- TRUE 
 soma <- 0
-ENQUANTO flag
+ENQUANTO flag FAÇA
   LEIA n
-  SE n == 'Q' OR n == 'q' ENTAO
-    flag = FALSE
+  SE n == '-1' ENTAO
+    flag <- FALSE
   SENAO
-    soma += n
+    soma <- soma + n
   FIM_SE
 FIM_ENQUANTO
 ESCREVA "Sua soma vale: ", soma
@@ -141,6 +141,15 @@ FIM
 ```
 
 ### Teste de mesa:
+
+| flag | it | n | soma | mudança_flag |Saída |
+| -- | -- | -- | -- | -- |
+| TRUE | 1 | -1 | 0 | FALSE | Sua soma vale: 0 |
+| TRUE | 1 | 2 | 2 | | |
+| TRUE | 2 | 5 | 7 | | |
+| TRUE | 3 | 3 | 10 | | |
+| TRUE | 4 | -1 | | FALSE | Sua soma vale: 10 |
+
 
 ## Exercício 04
 
@@ -153,15 +162,14 @@ flowchart TD
 A([Inicio]) --> B{{'Digite a nota de todos os alunos para obter a média. Quando finalizar sua lista, digite um valor negativo:'}}
 B --> D[flag = TRUE]
 D --> E[soma = 0]
-E --> F[cont = 1]
-F --> G{ENQUANTO flag}
+E --> F[cont = 0]
+F --> G{flag}
 G --FALSE--> c{cont == 0} --FALSE--> H[media = soma / cont]
 c --TRUE--> d{{'Você não digito nenhum valor!'}} --> Z
 H --> I{{'A média dos alunos vale: ', media}} --> Z
 G --TRUE--> J[\nota\]
-J --> L{nota > 0}
-L --FALSE--> M[flag = FALSE]
-M --> b[cont -= 1]
+J --> L{nota >= 0}
+L --FALSE--> M[flag = FALSE] --LOOP--> G
 b --LOOP--> G
 L --TRUE--> N[soma += nota]
 N --> O[cont += 1]
@@ -178,20 +186,21 @@ DECLARE nota, soma, media: FLOAT
 DECLARE cont: INT
 DECLARE flag: BOOL
 INICIO
-cont <- 1
-flag <- TRUE
+cont <- 0       // Inicializa, igual a 0, o contador de alunos.
+flag <- TRUE    // Inicializa como TRUE a variável flag para controlar o loop
 ESCREVA "Digite a nota de todos os alunos para obter a média. Quando finalizar sua lista, digite um valor negativo: "
 ENQUANTO flag FAÇA
   LEIA nota
-  SE nota > 0 ENTAO
-    soma <- soma + nota
-    cont <- cont + 1
+  SE nota >= 0 ENTAO
+    soma <- soma + nota // Acumulador de notas
+    cont <- cont + 1    // Incrementa 1 ao contador de alunos
 
-  SENAO
-    flag <- FALSE
-    cont <- cont - 1
+  SENAO                // Quando digitar uma nota negativa sairá do loop
+    flag <- FALSE      // atribui FALSE para flag saindo, assim, do loop
+
   FIM_SE
-SE cont == 0 ENTAO
+// Isso existe, pois há uma possibilidade da pessoa digitar uma nota negativa, fazendo cont == 0. (soma / 0) iria quebrar
+SE cont == 0 ENTAO 
   ESCREVA "Você não digitou nenhuma nota!"
 SENAO
   media = soma / cont
@@ -202,3 +211,11 @@ FIM
 
 ### Teste de mesa:
 
+| flag | it | cont | nota |nota >= 0 | soma | cont + 1 | mudança_flag | cont == 0 | media |Saída |
+| -- | -- | -- | -- | -- | -- | -- | -- | --| -- | -- |
+| TRUE | 1 | 0 | -5 | F | | | FALSE | V | | Você não digitou nenhuma nota!|
+| TRUE | 1 | 0 | 0 | F | | | FALSE | V | | Você não digitou nenhuma nota!|
+| TRUE | 1 | 0 | 5 | V | 5 | 1 | | | | |
+| TRUE | 2 | 1 | 13 | V | 18 | 2 | | | | |
+| TRUE | 3 | 2 | 7 | V | 25 | 3 | | | | |
+| TRUE | 4 | 3 | -5 | F | | | FALSE | | 8.33 | A média dos alunos vale: 8.33 |
