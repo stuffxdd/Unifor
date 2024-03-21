@@ -170,7 +170,6 @@ H --> I{{'A média dos alunos vale: ', media}} --> Z
 G --TRUE--> J[\nota\]
 J --> L{nota >= 0}
 L --FALSE--> M[flag = FALSE] --LOOP--> G
-b --LOOP--> G
 L --TRUE--> N[soma += nota]
 N --> O[cont += 1]
 O --LOOP--> G
