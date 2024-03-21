@@ -1,7 +1,7 @@
 # Unifor
 
-**Nome:** Francisco Luã <br>
-**Disciplina:** Raciocínio lógico algorítmico
+**Nome:** Francisco Luã Lima Cruz<br>
+**Disciplina:** Raciocínio Lógico Algorítmico
 
 ## Lista de exercícios 01
 
