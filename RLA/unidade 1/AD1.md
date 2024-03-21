@@ -218,7 +218,7 @@ FIM
 ```
 
 #### Teste de mesa:
-```
+
 | it | n  | S  | i | numerador | denominador | termo | S += termo     | saída                  |
 | -- | -- | -- |-- | --        | --          | --    | --             | --                     |
 |    | 0  | 0  |   |           |             |       |                |                        |
@@ -226,7 +226,7 @@ FIM
 | 2  | 4  | 0  | 1 | 2*1+1 = 1 | 2*1+2 = 2   | 3/4   | 1/2+3/4 = 1.25 |                        |
 | 3  | 4  | 0  | 2 | 2*2+1 = 1 | 2*2+2 = 2   | 5/6   | 0+1/2 = 2.08   |                        |
 | 4  | 4  | 0  | 3 | 2*3+1 = 1 | 2*3+2 = 2   | 7/8   | 0+1/2 = 2.96   | Soma da série S é 2.96 |
-```
+
 
 ## Questão 5 - Cálculo fatorial
 
@@ -272,13 +272,13 @@ FIM
 
 #### Teste de mesa:
 
-```
+
 | n  | fator | i  | fator = fator * i | saída               |
 | -- | --    | -- | --                | --                  |
 | 3  | 1     | 1  | 1*1 = 1           |                     |
 | 3  | 1     | 2  | 1*2 = 2           |                     |
 | 3  | 2     | 3  | 2*3 = 6           | O fatorial de 3 é 6 |
-```
+
 
 ## Questão 6 - Geração da sequência de Fibonacci
 Gerar e imprimir os $n$ primeiros termos da sequência de Fibonacci, onde $n ≥ 1$. <br>
