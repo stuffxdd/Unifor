@@ -1,6 +1,6 @@
 # Unifor
 **Nome:** Francisco Luã Lima Cruz <br>
-**Disciplina:** Raciocínio lógico e algoritmo
+**Disciplina:** Raciocínio Lógico Algorítmico
 
 ## Exercício 01
 Calcule a média de quatro números inteiros dados
@@ -11,7 +11,7 @@ Calcule a média de quatro números inteiros dados
 flowchart TD
 A([Inicio]) --> B{{'Digite 4 números inteiros: '}}
 B --> C[\n1, n2, n3, n4\]
-C --> D[soma= n1 + n2 + n3 +n4]
+C --> D[soma= n1 + n2 + n3 + n4]
 D --> E[media = soma / 4]
 E --> F{{'O valor da média vale: ', media}} --> Z
 
@@ -75,23 +75,20 @@ FIM
 
 ### Teste de mesa:
 
-| temp | temp < -273,15 | nov_temp | saída |
+| temp | temp_válida | nov_temp | saída |
 | -- | -- | -- | -- |
 | -300 | V | | "Valor inválido. A temperatura não pode ser menor que o zero absoluto, ou seja, -273,15 C!" |
-| 5 | F | 41.0 | "A temperatura correspondente em Fahrenheit vale: 41.0 F."|
+| 5 | F | 41.0 | "A temperatura correspondente em Fahrenheit vale: 41.0 F." |
 
 ## Exercício 03
-Recebe dois números e um operador e efetue a operação corresondente com os valores recebidos (operandos). O aloritmo deve retornar o resultado da operação selecionada simulando todas as operações de uma calculadora simples.
+Recebe dois números e um operador e efetue a operação correspondente com os valores recebidos (operandos). O aloritmo deve retornar o resultado da operação selecionada simulando todas as operações de uma calculadora simples.
 
 ```mermaid
 flowchart TD
 
-
-A([Inicio]) --> B{{'Operadores válidos são: +, -, *, /'}}
-B --> BB{{'Insira dois valores e um número operador aritmético: '}}
-BB--> C[/n1, n2, op/]
-
-C --> D{op == '+'}
+A([Inicio]) --> B{{'Insira o primeiro valor: '}} --> a[\n1\] --> BB{{'Insira o segundo valor: '}} --> b[\n2\]
+b --> c{{'Operadores válidos são: +, -, *, /. Insira um operador válido: '}} --> d[\op\]
+d --> D{op == '+'}
 D --FALSE-->E{op == '-'}
 E --FALSE--> F{op == '*'}
 F --FALSE--> G{op == '/'}
@@ -112,9 +109,14 @@ Z([Fim])
 ```
 ALGORITMO Calculadora
 DECLARE n1, n2, soma, mult, div: FLOAT
-DECLARE op: INTEIRO
-ESCREVA "Operadores válidos são: +, - , *, /"
-ESCREVA "Insira dois valores e um número correspondente a um operador: "
+DECLARE op: CHAR
+INICIO
+ESCREVA "Insira o primeiro valor: "
+LEIA n1
+ESCREVA "Insira o segundo valor: "
+LEIA n2
+ESCREVA "Operadores válidos são: +, -, *, /. Insira um operador válido: "
+LEIA op
 SE op == '+' ENTAO
   soma = n1 + n2
   ESCREVA "A soma vale: ", soma
@@ -175,13 +177,13 @@ I --TRUE--> O{{'Categoria: Adulto'}} --> Z
 Z([Fim])
 ```
 
-### Pseudocódigo:
+#### Pseudocódigo:
 
 ```
 ALGORITMO ClassificaCategoria
-DECLARE idade
-ESCREVA "As idades para uma classificação válida são de 5 anos em diante. Digite sua idade para ser classificado: "
+DECLARE idade: INT
 INICIO
+ESCREVA "As idades para uma classificação válida são de 5 anos em diante. Digite sua idade para ser classificado: "
 LEIA idade
 SE idade >= 5 AND idade <= 7 ENTAO
   ESCREVA "Categoria: Infantil A"
@@ -199,7 +201,7 @@ FIM_SE
 FIM
 ```
 
-### Teste de mesa:
+#### Teste de mesa:
 
 | idade | idade >= 5 AND idade <= 7|idade >= 8 AND idade <=10 | idade >= 11 AND idade <= 13 | idade >=14 AND idade <= 17 | idade >= 18 | Saída |
 | -- | -- | -- | -- | -- | -- | -- |
