@@ -84,12 +84,12 @@ K --LOOP--> F
 DECLARE i, cont, n: INT
 DECLARE nota: FLOAT
 INICIO
-ESCREVA "Digite o número de alunos: "
-LEIA n
-i <- 1                // Variável que controla o While
-cont <- 0             // Conta quantos alunos foram aprovados
-ENQUANTO i <= n FAÇA  // Isso fará 'n' repetições (Ex. 50 pedidos de notas)
-  ESCREVA "Digite a nota do aluno ", i
+ESCREVA "Digite o número de alunos: "  // Solicita o número de alunos
+LEIA n                                // Guarda o número de alunos na variável "n"
+i <- 1                                // Atribui o valor 1 à variável "i". Isso serve como uma flag para sair do loop while
+cont <- 0                             // Atribui o valor 0 à "cont". Essa variável serve para contar o número de alunos aprovados
+ENQUANTO i <= n FAÇA                  // Isso fará 'n' repetições (Ex. 50 pedidos de notas)
+  ESCREVA "Digite a nota do aluno ", i, " : "
   LEIA nota
   SE nota >= 50 AND nota <=100
     cont <- cont + 1
@@ -144,21 +144,22 @@ ALGORITMO SomaSerie
 DECLARE n, i: INT
 DECLARE soma, num: FLOAT
 ESCREVA "Digite a quantidade de números (n>=0): "
-LEIA n
-SE n >= 0 ENTAO
-  soma <- 0
-  i <- 1  // Controle do While (Permite executar fazer iterações até que a condição seja falsa)
+INICIO
+LEIA n            // Guarda a quantidade de números na variável "n"
+SE n >= 0 ENTAO   
+  soma <- 0      // Acumulador de somas. Acumula as somas até que acaba a repetição de "n" vezes
+  i <- 1  // flag que garante a execução "n" vezes
   ENQUANTO i <= n FAÇA
     ESCREVA "Digite um número: "
     LEIA num
     soma <- soma + num
-    i <- i + 1
+    i <- i + 1    // Incrimenta em 1 para que "i" seja atualizado e não cause um loop infinito
   FIM_ENQUANTO
   ESCREVA "A soma dos números é: ", soma
 SENAO
   ESCREVA "O número deve ser maior que zero!"
 FIM_SE
-
+FIM
 ```
 #### Teste de mesa:
 
@@ -203,8 +204,8 @@ I --LOOP--> E
 ALGORITMO SomaSerie
 DECLARE n: INT
 DECLARE soma, numerador, denominador, termo: FLOAT
-INICIO
 ESCREVA "Digite o número de termos da série S: "
+INICIO
 LEIA n
 S <- 0
 PARA i de 0 ATÉ n PASSO 1
@@ -254,8 +255,8 @@ H --> I
 ```
 ALGORITMO CalcFatorial
 DECLARE n, fator: INT
-INICIO
 ESCREVA "Digite um número inteiro nao-negativo: "
+INICIO
 LEIA n
 SE n >= 0 ENTAO
   fator <- 1  // É
@@ -290,6 +291,7 @@ Os primeiros termos são: $0, 1, 1, 2, 3, 5, 8, 13, \dots$. Cada termo, além do
 ALGORITMO GeraFibonacci
 DECLARE a, b, n, termo_atual: INT
 ESCREVA "Digite o número de termos da série de Fibonacci: "
+INICIO
 LEIA n
 a <- 0
 b <- 1
@@ -339,8 +341,8 @@ E --> W
 ```
 ALGORITMO InverteInteiro
 DECLARE num, num_inv, digito: INT
-INICIO
 ESCREVA "Digite um número inteiro: "
+INICIO
 LEIA num
 SE num >= 0 ENTAO
   num_inv <- 0
@@ -353,7 +355,7 @@ SE num >= 0 ENTAO
 SENAO
   ESCREVA "O número deve ser positivo!"
 FIM_SE
-
+FIM
 ```
 
 #### Teste de mesa
