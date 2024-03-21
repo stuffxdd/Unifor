@@ -44,12 +44,12 @@ FIM
 
 ### Teste de mesa:
 
-| n | n <= 0 | it | it: Saída | n % 2 == 0 | Saída |
-| -- | -- | -- | -- | -- | -- |
-| 0 | V | 1 | "O número deve ser maior que zero. Digite o valor novamente:  | | |
-| -2 | V | 2 | "O número deve ser maior que zero. Digite o valor novamente:" | | |
-| 5 | F | | | F | "O número é ímpar!"|
-| 4 | F | | | V | "O número é par!" |
+| n | n <= 0 | it | n % 2 == 0 | Saída |
+| -- | -- | -- | -- | -- |
+| -1 | V | 1 | | "O número deve ser maior que zero! Digite o valor novamente: "|
+| -3 | V | 2 | | "O número deve ser maior que zero! Digite o valor novamente: "|
+| 5 | F | | F | "O número é ímpar!" |
+| 8 | F | | F | "O número é par!" |
 
 ## Exercício 02
 Faça um algoritmo que exiba na tela uma contagem de 0 até 30, exibindo apenas os múltiplos de 3.
