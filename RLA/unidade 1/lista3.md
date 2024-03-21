@@ -142,8 +142,8 @@ FIM
 
 ### Teste de mesa:
 
-| flag | it | n | soma | mudança_flag |Saída |
-| -- | -- | -- | -- | -- |
+| flag | it | n | soma | mudança_flag | Saída |
+| -- | -- | -- | -- | -- | -- |
 | TRUE | 1 | -1 | 0 | FALSE | Sua soma vale: 0 |
 | TRUE | 1 | 2 | 2 | | |
 | TRUE | 2 | 5 | 7 | | |
